@@ -111,6 +111,7 @@ func WithAuthRetry(req *http.Request) (*http.Response, error) {
 
 	// attach access token
 	req.Header.Set("Authorization", "Bearer "+creds.AccessToken)
+	req.Header.Set("X-API-Version", "2")
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
