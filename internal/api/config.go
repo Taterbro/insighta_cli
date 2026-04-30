@@ -2,7 +2,7 @@ package api
 
 import "time"
 
-var BackendUrl = "http://localhost:8080/api"
+var BackendUrl = "https://backendstagezero.pxxl.click"
 
 type Account struct {
 	ID          string    `json:"id" db:"id"`
