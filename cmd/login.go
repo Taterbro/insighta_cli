@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/Taterbro/insighta_cli/internal/api"
 	"github.com/pkg/browser"
 	"github.com/spf13/cobra"
 )
@@ -44,25 +45,14 @@ func init() {
 	// loginCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-type Account struct {
-	ID          string    `json:"id" db:"id"`
-	GitHubID    int       `json:"github_id" db:"github_id"`
-	Username    string    `json:"username" db:"username"`
-	Email       string    `json:"email" db:"email"`
-	AvatarURL   string    `json:"avatar_url" db:"avatar_url"`
-	Role        string    `json:"role" db:"role"`
-	IsActive    bool      `json:"is_active" db:"is_active"`
-	LastLoginAt time.Time `json:"last_login_at" db:"last_login_at"`
-	CreatedAt   time.Time `json:"created_at" db:"created_at"`
-}
 type PollResponse struct {
-	AccessToken  string  `json:"access_token"`
-	RefreshToken string  `json:"refresh_token"`
-	UserDetails  Account `json:"user_details"`
+	AccessToken  string      `json:"access_token"`
+	RefreshToken string      `json:"refresh_token"`
+	UserDetails  api.Account `json:"user_details"`
 }
 
 func login() {
-	url := fmt.Sprintf("%s/auth/github?platform=cli", os.Getenv("BACKEND_URL"))
+	url := fmt.Sprintf("%s/auth/github?platform=cli", api.BackendUrl)
 
 	resp, err := http.Get(url)
 	if err != nil {
@@ -100,7 +90,7 @@ func login() {
 func poll(state string) {
 	pollURL := fmt.Sprintf(
 		"%s/auth/callback/poll?state=%s",
-		os.Getenv("BACKEND_URL"),
+		api.BackendUrl,
 		state,
 	)
 

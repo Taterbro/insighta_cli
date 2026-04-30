@@ -4,10 +4,8 @@ Copyright © 2026 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 )
 
@@ -45,10 +43,5 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	err := godotenv.Load()
-	if err != nil {
-		//log.Fatal("Error loading .env file")
-		log.Println("couldn't load .env")
-	}
-	log.Println("env loaded successfully")
+
 }
