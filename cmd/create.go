@@ -8,8 +8,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/Taterbro/insighta_cli/internal/api"
-	"github.com/Taterbro/insighta_cli/internal/helpers"
+	"github.com/Taterbro/insighta/internal/api"
+	"github.com/Taterbro/insighta/internal/helpers"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 )

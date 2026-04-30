@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Taterbro/insighta_cli/internal/api"
+	"github.com/Taterbro/insighta/internal/api"
 )
 
 func loadCredentials() (*api.Credentials, string, error) {
