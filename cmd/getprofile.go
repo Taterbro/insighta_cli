@@ -46,7 +46,7 @@ func runProfilesGet(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("BACKEND_URL not set")
 	}
 
-	req, err := http.NewRequest("GET", baseURL+"/profiles/"+id, nil)
+	req, err := http.NewRequest("GET", baseURL+"/api/profiles/"+id, nil)
 	if err != nil {
 		return err
 	}

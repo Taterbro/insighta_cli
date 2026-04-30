@@ -107,7 +107,7 @@ func runProfilesList(cmd *cobra.Command) error {
 	}
 
 	// request setup
-	req, err := http.NewRequest("GET", baseURL+"/profiles?"+q.Encode(), nil)
+	req, err := http.NewRequest("GET", baseURL+"/api/profiles?"+q.Encode(), nil)
 	if err != nil {
 		return err
 	}
@@ -196,7 +196,7 @@ var profilesSearchCmd = &cobra.Command{
 
 		baseURL := api.BackendUrl
 
-		req, _ := http.NewRequest("GET", baseURL+"/profiles/search?"+q.Encode(), nil)
+		req, _ := http.NewRequest("GET", baseURL+"/api/profiles/search?"+q.Encode(), nil)
 		req.Header.Set("X-API-Version", "2")
 
 		resp, err := helpers.WithAuthRetry(req)

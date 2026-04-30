@@ -88,7 +88,7 @@ func runProfilesExport(cmd *cobra.Command, args []string) error {
 	}
 
 	// request (POST, but query params)
-	req, err := http.NewRequest("POST", baseURL+"/profiles/export?"+q.Encode(), nil)
+	req, err := http.NewRequest("POST", baseURL+"/api/profiles/export?"+q.Encode(), nil)
 	if err != nil {
 		return err
 	}

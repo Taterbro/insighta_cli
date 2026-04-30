@@ -43,7 +43,7 @@ func runProfilesCreate(cmd *cobra.Command, args []string) error {
 		"name": name,
 	})
 
-	req, err := http.NewRequest("POST", baseURL+"/profiles", bytes.NewBuffer(body))
+	req, err := http.NewRequest("POST", baseURL+"/api/profiles", bytes.NewBuffer(body))
 	if err != nil {
 		return err
 	}
